@@ -4,7 +4,7 @@ const N = +fs.readFileSync(0).toString().trim()
 
 let ans = '';
 
-recursive(5)
+recursive(N)
 
 console.log(ans.trim());
 
