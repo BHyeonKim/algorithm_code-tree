@@ -6,7 +6,7 @@ let ans = '';
 
 recursive(5)
 
-console.log(ans);
+console.log(ans.trim());
 
 function recursive(depth, direction = 'D'){
 
