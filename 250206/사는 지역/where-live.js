@@ -29,5 +29,4 @@ for(const personInfo of info){
 }
 
 
-console.log(arr.sort((personA,personB)=>personA._name - personB._name)
-[arr.length-1].toString());
+console.log(arr.sort((personA,personB)=>personA._name.localeCompare(personB._name))[arr.length-1].toString());
