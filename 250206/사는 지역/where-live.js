@@ -17,7 +17,9 @@ class Person{
     }
 
     toString(){
-        return `name ${this._name}\naddr ${this._addressNo}\ncity ${this._location}`
+        return `name ${this._name}
+addr ${this._addressNo}
+city ${this._location}`
     }
 }
 
@@ -26,6 +28,6 @@ for(const personInfo of info){
     arr.push(new Person(personInfo[0],personInfo[1],personInfo[2]))
 }
 
-arr.sort((personA,personB)=>personA._name-personB._name)
+arr.sort((personA,personB)=>personA._name - personB._name)
 
 console.log(arr[arr.length-1].toString());
