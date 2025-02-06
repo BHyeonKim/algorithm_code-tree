@@ -10,6 +10,7 @@ let result = 'Yes'
 for(let i = 0 ; i < N ; i++){
     if(arrA[i] !== arrB[i]){
         result = 'No'
+        break;
     }
 }
 
