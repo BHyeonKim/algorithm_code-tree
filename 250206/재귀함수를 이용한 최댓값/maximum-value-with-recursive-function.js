@@ -11,5 +11,7 @@ function recur(depth){
         return arr[depth];
     }
 
-    return arr[depth] > recur(depth - 1) ? arr[depth] : recur(depth - 1);
+    const next = recur(depth - 1)
+
+    return arr[depth] > next ? arr[depth] : next;
 }
