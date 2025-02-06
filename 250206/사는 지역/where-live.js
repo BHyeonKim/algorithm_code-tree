@@ -28,6 +28,6 @@ for(const personInfo of info){
     arr.push(new Person(personInfo[0],personInfo[1],personInfo[2]))
 }
 
-arr.sort((personA,personB)=>personA._name - personB._name)
 
-console.log(arr[arr.length-1].toString());
+console.log(arr.sort((personA,personB)=>personA._name - personB._name)
+[arr.length-1].toString());
