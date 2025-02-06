@@ -14,5 +14,5 @@ function recur(prev ,depth){
     const current = arr[depth];
     const next = recur(current, depth - 1);
 
-    return current > next ? arr[depth] : next;
+    return current > next ? current : next;
 }
