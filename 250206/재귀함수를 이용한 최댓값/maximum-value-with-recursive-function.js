@@ -4,14 +4,15 @@ const input = fs.readFileSync(0).toString().trim().split('\n');
 
 const arr = input[1].split(' ');
 
-console.log(recur(arr.length - 1))
+console.log(recur(0, arr.length - 1))
 
-function recur(depth){
+function recur(prev ,depth){
     if(depth === 0){
-        return arr[depth];
+        return prev > arr[depth] ? prev : arr[depth];
     }
 
-    const next = recur(depth - 1)
+    const current = arr[depth];
+    const next = recur(current, depth - 1);
 
-    return arr[depth] > next ? arr[depth] : next;
+    return current > next ? arr[depth] : next;
 }
