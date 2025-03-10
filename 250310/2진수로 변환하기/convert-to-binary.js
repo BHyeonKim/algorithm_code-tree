@@ -8,7 +8,7 @@ while(n !== 0){
     n = parseInt(n / 2);
 }
 
-console.log(ans);
+console.log(ans || 0);
 
 
 
