@@ -7,19 +7,14 @@ for (let i = 1; i <= n; i++) {
     segments.push(input[i].split(' ').map(Number));
 }
 
-let start = 0;
-let end = 0;
-
-let ans = 0;
 
 const arr = Array.from({length: 101}, () => 0);
 
 for(const [s, e] of segments){
+    if(s === e) continue;
     for(let i = s ; i < e; i++){
         arr[i]++;
     }
-    start = Math.max(start, s)
-    end = Math.max(end, e);
 }
 
 
