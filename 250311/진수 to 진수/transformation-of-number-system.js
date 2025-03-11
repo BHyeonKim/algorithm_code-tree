@@ -11,7 +11,7 @@ function decimalToConverted(decimal, n){
     let converted = '';
 
     while(decimal !== 0){
-        converted = converted + decimal % n;
+        converted = decimal % n + converted;
         decimal = Math.floor(decimal / n)
     }
 
