@@ -8,11 +8,10 @@ for (let i = 1; i <= n; i++) {
 }
 
 
-const arr = Array.from({length: 101}, () => 0);
+const arr = Array.from({length: 201}, () => 0);
 
 for(const [s, e] of segments){
-    if(s === e) continue;
-    for(let i = s ; i < e; i++){
+    for(let i = s + 100 ; i < e + 100; i++){
         arr[i]++;
     }
 }
