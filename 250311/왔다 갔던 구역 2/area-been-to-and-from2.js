@@ -14,11 +14,11 @@ for(const [val, dir] of commands){
   const num = Number(val)
 
   if(dir === 'R'){
-    for(let i = cursor ; i <= cursor + val ; i++){
+    for(let i = cursor ; i < cursor + val ; i++){
       arr[i]++
     }
   }else{
-    for(let i = cursor ; i >= cursor - val ; i--){
+    for(let i = cursor ; i > cursor - val ; i--){
       arr[i]++
     }
   }
@@ -27,8 +27,7 @@ for(const [val, dir] of commands){
 let prev = arr[0];
 
 for(let i = 1 ; i < arr.length ; i++){
-  if(arr[i] >= 2 && prev >= 2) ans++;
-  else prev = arr[i]
+  if(arr[i] >= 2) ans++;
 }
 
 console.log(ans)
