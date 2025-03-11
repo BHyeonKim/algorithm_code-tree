@@ -15,7 +15,7 @@ let ans = 0;
 const arr = Array.from({length: 101}, () => 0);
 
 for(const [s, e] of segments){
-    for(let i = s ; i <= e; i++){
+    for(let i = s ; i < e; i++){
         arr[i]++;
     }
     start = Math.max(start, s)
@@ -23,14 +23,4 @@ for(const [s, e] of segments){
 }
 
 
-let prev = arr[start];
-
-for(let i = start + 1 ; i <= end ; i++){
-    if(prev === arr[i]){
-        ans = Math.max(arr[i], ans)
-    }else{
-        prev = arr[i]
-    }
-}
-
-console.log(ans)
+console.log(Math.max(...arr))
