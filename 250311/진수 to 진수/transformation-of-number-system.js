@@ -15,7 +15,7 @@ function decimalToConverted(decimal, n){
         decimal = Math.floor(decimal / n)
     }
 
-    return converted;
+    return Number(converted);
 }
 
 function convertedToDecimal(convertedNum, n){
@@ -23,7 +23,7 @@ function convertedToDecimal(convertedNum, n){
     let decimal = 0;
 
     for(let i = num.length - 1 ; i >= 0 ; i--){
-        decimal += num[i] * Math.pow(n, i);
+        decimal += num[i] * Math.pow(n, num.length - i -1);
     }
 
     return Number(decimal);
