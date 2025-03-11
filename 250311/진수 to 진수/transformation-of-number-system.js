@@ -1,10 +1,13 @@
 const fs = require("fs");
 const input = fs.readFileSync(0).toString().trim().split('\n');
 const [a, b] = input[0].split(' ').map(Number);
-const n = input[1];
-// Please Write your code here.
+const n = +input[1];
 
-function decimalToNth(decimal, n){
+console.log(decimalToConverted(convertedToDecimal(n, a), b))
+
+
+
+function decimalToConverted(decimal, n){
     let converted = '';
 
     while(decimal !== 0){
@@ -16,5 +19,12 @@ function decimalToNth(decimal, n){
 }
 
 function convertedToDecimal(convertedNum, n){
+    const num = String(convertedNum);
     let decimal = 0;
+
+    for(let i = num.length - 1 ; i >= 0 ; i--){
+        decimal += num[i] * Math.pow(n, i);
+    }
+
+    return Number(decimal);
 }
