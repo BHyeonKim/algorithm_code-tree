@@ -10,7 +10,6 @@ for (let i = 1; i <= n; i++) {
 const arr = Array.from({length: 101},()=>0)
 
 for(const[s, e] of segments){
-    if(s === e) continue;
     for(let i = s ; i <= e ; i++){
         arr[i]++;
     }
