@@ -4,7 +4,7 @@ const input = fs.readFileSync(0).toString().trim().split('\n');
 const n = Number(input[0]);
 const rects = input.slice(1, n + 1).map(line => line.split(' ').map(Number));
 
-const grid = Array.from({length: 20},()=>Array.from({length:20},()=>false))
+const grid = Array.from({length: 200},()=>Array.from({length:200},()=>false))
 
 let xL = Number.POSITIVE_INFINITY;
 let xR = Number.NEGATIVE_INFINITY;
@@ -19,7 +19,7 @@ for(const [x1 ,y1, x2, y2] of rects){
 
     for(let i = x1 ; i < x2; i++){
         for(let j = y1 ; j < y2 ; j++){
-                grid[i][j] = true
+                grid[i+100][j+100] = true
         }
     }
 }
@@ -28,7 +28,7 @@ let ans = 0;
 
  for(let i = xL ; i < xR; i++){
     for(let j = yB ; j < yT ; j++){
-            if(grid[i][j]) ans++;
+            if(grid[i+100][j+100]) ans++;
     }
 }
 
