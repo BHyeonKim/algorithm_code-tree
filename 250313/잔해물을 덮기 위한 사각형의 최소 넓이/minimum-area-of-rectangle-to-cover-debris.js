@@ -10,7 +10,7 @@ const [x1,y1, x2, y2] = rect1;
 
 for(let x = x1 ; x <= x2 ; x++){
     for(let y = y1 ; y <= y2 ; y++){
-        grid[x][y] = 1;
+        grid[x+1000][y+1000] = 1;
     }
 }
 
@@ -18,7 +18,7 @@ const [x_1,y_1, x_2, y_2] = rect2;
 
 for(let x = x_1 ; x <= x_2 ; x++){
     for(let y = y_1 ; y <= y_2 ; y++){
-        grid[x][y] = 0;
+        grid[x+1000][y+1000] = 0;
     }
 }
 
@@ -30,7 +30,7 @@ let topBound = Number.NEGATIVE_INFINITY;
 
 for(let x = x1 ; x <= x2 ; x++){
     for(let y = y1 ; y <= y2 ; y++){
-        if(grid[x][y]){
+        if(grid[x+1000][y+1000]){
             leftBound = Math.min(leftBound, x)
             bottomBound = Math.min(bottomBound , y);
             rightBound = Math.max(rightBound ,x);
