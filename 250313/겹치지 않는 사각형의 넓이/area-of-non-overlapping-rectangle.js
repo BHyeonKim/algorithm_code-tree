@@ -14,19 +14,19 @@ const ty = Math.max(aY2, bY2);
 
 for(let i = aX1 ; i < aX2 ; i++){
     for(let j = aY1 ; j < aY2 ; j++){
-        grid[i][j] = 1;
+        grid[i+1000][j+1000] = 1;
     }
 }
 
 for(let i = bX1 ; i < bX2 ; i++){
     for(let j = bY1 ; j < bY2 ; j++){
-        grid[i][j] = 1;
+        grid[i+1000][j+1000] = 1;
     }
 }
 
 for(let i = mX1 ; i < mX2 ; i++){
     for(let j = mY1 ; j < mY2 ; j++){
-        grid[i][j] = 2;
+        grid[i+1000][j+1000] = 2;
     }
 }
 
@@ -34,7 +34,7 @@ let ans = 0;
 
 for(let i = lx ; i < rx ; i++){
     for(let j = by ; j < ty ; j++){
-        if(grid[i][j] === 1) ans++;
+        if(grid[i+1000][j+1000] === 1) ans++;
     }
 }
 
