@@ -8,16 +8,16 @@ const grid = Array.from({length:2000}, ()=> Array.from({length:2000},()=>0));
 
 const [x1,y1, x2, y2] = rect1;
 
-for(let x = x1 ; x <= x2 ; x++){
-    for(let y = y1 ; y <= y2 ; y++){
+for(let x = x1 ; x < x2 ; x++){
+    for(let y = y1 ; y < y2 ; y++){
         grid[x+1000][y+1000] = 1;
     }
 }
 
 const [x_1,y_1, x_2, y_2] = rect2;
 
-for(let x = x_1 ; x <= x_2 ; x++){
-    for(let y = y_1 ; y <= y_2 ; y++){
+for(let x = x_1 ; x < x_2 ; x++){
+    for(let y = y_1 ; y < y_2 ; y++){
         grid[x+1000][y+1000] = 0;
     }
 }
@@ -39,5 +39,4 @@ for(let x = x1 ; x <= x2 ; x++){
     }
 }
 
-
-console.log((rightBound - leftBound) * (topBound - bottomBound))
+console.log((rightBound - leftBound + 1) * (topBound - bottomBound + 1))
