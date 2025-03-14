@@ -28,9 +28,12 @@ let bottomBound = Number.POSITIVE_INFINITY
 let rightBound = Number.NEGATIVE_INFINITY;
 let topBound = Number.NEGATIVE_INFINITY;
 
+let isExists = false
+
 for(let x = x1 ; x < x2 ; x++){
     for(let y = y1 ; y < y2 ; y++){
         if(grid[x+1000][y+1000]){
+            isExists = true;
             leftBound = Math.min(leftBound, x)
             bottomBound = Math.min(bottomBound , y);
             rightBound = Math.max(rightBound ,x);
@@ -39,7 +42,7 @@ for(let x = x1 ; x < x2 ; x++){
     }
 }
 
-if(rightBound === leftBound || topBound === bottomBound){
+if(!isExists){
     console.log(0)
 }else{
     console.log((rightBound - leftBound + 1) * (topBound - bottomBound + 1))
