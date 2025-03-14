@@ -13,6 +13,7 @@ for(let i = 1 ; i < arr.length ; i++){
         count++;
     }else{
         prev = arr[i]
+        count = 1
     }
     ans = Math.max(ans,count);
 }
