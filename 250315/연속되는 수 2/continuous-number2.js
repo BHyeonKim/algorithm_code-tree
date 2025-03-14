@@ -13,8 +13,8 @@ for(let i = 1 ; i < arr.length ; i++){
         count++;
     }else{
         prev = arr[i]
-        ans = Math.max(ans,count);
     }
+    ans = Math.max(ans,count);
 }
 
 console.log(ans)
