@@ -39,4 +39,8 @@ for(let x = x1 ; x < x2 ; x++){
     }
 }
 
-console.log((rightBound - leftBound + 1) * (topBound - bottomBound + 1))
+if(rightBound === leftBound || topBound === bottomBound){
+    console.log(0)
+}else{
+    console.log((rightBound - leftBound + 1) * (topBound - bottomBound + 1))
+}
