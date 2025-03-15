@@ -13,6 +13,7 @@ let stage_B = 0;
 let time_A = 0;
 let time_B = 0;
 let time = 0;
+let isExists = true;
 
 let cooridante_A = 0;
 let cooridante_B = 0;
@@ -63,6 +64,16 @@ while(true){
     time++;
 
     if(cooridante_A === cooridante_B) break;
+
+    if(stage_A === A_arr.length && stage_B === B_arr.length){
+        isExists = false;
+        break;
+    }
 }
 
-console.log(time)
+
+if(isExists){
+    console.log(time)
+}else{
+    console.log(-1)
+}
