@@ -6,11 +6,15 @@ const penalizedPersons = input.slice(1, m + 1).map(Number);
 
 const arr = Array.from({length:n+1},()=>0);
 
+let ans = -1
+
 for(const p of penalizedPersons){
     arr[p]++;
 
     if(arr[p] >= k){
-        console.log(p)
+        ans = p
         break;
     }
 }
+
+console.log(p)
