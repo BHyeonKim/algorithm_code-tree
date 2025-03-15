@@ -17,4 +17,4 @@ for(const p of penalizedPersons){
     }
 }
 
-console.log(p)
+console.log(ans)
