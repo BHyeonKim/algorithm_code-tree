@@ -2,14 +2,12 @@ const fs = require("fs");
 const input = fs.readFileSync(0).toString().trim().split('\n');
 
 const [N, T] = input[0].split(' ').map(Number);
-let [R, C, Direction] = input[1].split(' ').map((value,inDirectionex)=> inDirectionex === 2 ? value : Number(value));
+let [R, C, Direction] = input[1].split(' ').map((value,index)=> index === 2 ? value : Number(value));
 
 const BOTTOM = 1;
 const TOP = N;
 const LEFT = 1;
 const RIGHT = N;
-
-
 
 
 if(Direction === 'R' || Direction === 'L'){
@@ -31,16 +29,16 @@ if(Direction === 'R' || Direction === 'L'){
 }else{
     for(let time = 0 ; time < T ; time++){
         if(Direction === 'U'){
-            if(R === TOP){
-                Direction = 'D'
-            }else{
-                R++;
-            }
-        }else{
             if(R === BOTTOM){
-                Direction  = 'U'
+                Direction = 'B'
             }else{
                 R--;
+            }
+        }else{
+            if(R === TOP){
+                Direction  = 'U'
+            }else{
+                R++;
             }
         }
     }
