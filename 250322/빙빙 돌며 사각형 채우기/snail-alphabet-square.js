@@ -7,6 +7,7 @@ const grid = Array.from({length:n},()=>Array.from({length:m},()=>''))
 
 let charcode = 65;
 
+
 let delta = [[0,1],[1,0],[0,-1],[-1,0]]
 let direction = 0;
 
@@ -15,10 +16,11 @@ let count = 0
 
 
 
+
 while(true){
     const [r, c] = point;
     grid[r][c] = String.fromCharCode(charcode++)
-    count++;
+    count = count >= 90 ? 65 : count+1;
 
     let nr = r + delta[direction][0]
     let nc = c + delta[direction][1]
