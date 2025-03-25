@@ -8,6 +8,7 @@ let ans = 0;
 
 for(let i = 1; i < arr.length -2 ; i++){
     for(let j = 0 ; j < i ; j++){
+        if(arr[j] > arr[i]) continue;
         for(let k = i + 1 ; k < arr.length - 1 ; k++){
             if(arr[j] <= arr[i] && arr[i] <= arr[k]) ans++;
         }
