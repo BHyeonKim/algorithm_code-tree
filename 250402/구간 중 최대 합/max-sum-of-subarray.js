@@ -11,7 +11,7 @@ let ans = sum;
 for(let i = K ; i < N ; i++){
     sum -= arr[i-K];
     sum += arr[i];
-    ans = Math.max(ans, sum)
+    ans = ans > sum ? ans : sum
 }
 
 console.log(ans)
