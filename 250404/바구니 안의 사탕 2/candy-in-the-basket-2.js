@@ -12,7 +12,11 @@ let rightBound = Number.NEGATIVE_INFINITY;
 let ans = 0;
 
 for(const [numOfCandy, coordinate] of baskets){
-    position[coordinate] = numOfCandy
+    if(!position[coordinate]){
+        position[coordinate] = numOfCandy
+    }else{
+        position[coordinate] += numOfCandy
+    }
 
     rightBound = coordinate > rightBound ? coordinate : rightBound;
     leftBound = coordinate < leftBound ? coordinate : leftBound;
