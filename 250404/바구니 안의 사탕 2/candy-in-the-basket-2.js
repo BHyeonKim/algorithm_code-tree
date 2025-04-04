@@ -6,9 +6,6 @@ const baskets = input.slice(1).sort((a,b)=>a[1]-b[1]);
 
 const  position = Array.from({length:101},()=>0)
 
-let leftBound = Number.POSITIVE_INFINITY;
-let rightBound = Number.NEGATIVE_INFINITY;
-
 let ans = 0;
 
 for(const [numOfCandy, coordinate] of baskets){
@@ -17,9 +14,6 @@ for(const [numOfCandy, coordinate] of baskets){
     }else{
         position[coordinate] += numOfCandy
     }
-
-    rightBound = coordinate > rightBound ? coordinate : rightBound;
-    leftBound = coordinate < leftBound ? coordinate : leftBound;
 }
 
 for(let center = 1 ; center <= 99 ; center++){
