@@ -22,10 +22,10 @@ for(const [numOfCandy, coordinate] of baskets){
     leftBound = coordinate < leftBound ? coordinate : leftBound;
 }
 
-
-for(let center = leftBound + K ; center <= rightBound - K ; center++){
+for(let center = 1 ; center <= 99 ; center++){
     let sum = 0
     for(let j = center - K; j <= center + K ; j++){
+        if(j < 0 || j > 100) continue;
         sum += position[j]
     }
     ans = ans > sum ? ans : sum;
