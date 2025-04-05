@@ -6,7 +6,7 @@ const heights = input[1].split(' ').map(Number);
 
 let ans = Number.POSITIVE_INFINITY;
 
-for(let i = 0 ; i < N - T ; i++){
+for(let i = 0 ; i < N - T + 1 ; i++){
     let price = 0;
 
     for(let k = i ; k < i + T ; k++){
