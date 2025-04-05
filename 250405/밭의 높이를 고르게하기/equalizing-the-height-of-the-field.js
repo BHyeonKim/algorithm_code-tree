@@ -1,7 +1,7 @@
 const fs = require('fs')
 const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n')
 
-const [N, T, H] = input[0].split(' ').map(Number);
+const [N, H, T] = input[0].split(' ').map(Number);
 const heights = input[1].split(' ').map(Number);
 
 let ans = Number.POSITIVE_INFINITY;
