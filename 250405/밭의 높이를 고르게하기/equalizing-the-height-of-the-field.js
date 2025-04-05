@@ -6,15 +6,21 @@ const heights = input[1].split(' ').map(Number);
 
 let ans = Number.POSITIVE_INFINITY;
 
+
 for(let i = 0 ; i < N - T + 1 ; i++){
     let price = 0;
+    let isEalryReturned = false;
 
     for(let k = i ; k < i + T ; k++){
         const height = heights[k]
+        if(height < price){
+            isEalryReturned = true;
+            break;
+        }
         if(height === H) continue;
         price += Math.abs(H - height)
     }
-
+    if(isEalryReturned) continue;
     ans = ans > price ? price : ans
 }
 
