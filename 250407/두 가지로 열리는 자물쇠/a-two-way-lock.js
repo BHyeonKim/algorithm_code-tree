@@ -21,12 +21,12 @@ function isInRange(a,b){
     if(Math.abs(a-b) <= 2) return true;
 
     if(a > b){
-        a = a - 9;
+        a = a - N;
     }else{
-        b = b - 9;
+        b = b - N;
     }
 
-    if(Math.abs(a-b) <= 1) return true;
+    if(Math.abs(a-b) <= 2) return true;
 
     return false;
 }
