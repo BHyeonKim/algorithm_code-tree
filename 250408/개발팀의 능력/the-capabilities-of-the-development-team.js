@@ -29,4 +29,9 @@ for(let i = 0 ; i < input.length - 1 ; i++){
     visited[i] = false;
 }
 
-console.log(ans)
+
+if(ans === TOTAL){
+    console.log(-1)
+}else{
+    console.log(ans)
+}
