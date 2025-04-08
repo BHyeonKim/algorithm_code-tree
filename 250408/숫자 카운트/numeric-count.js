@@ -10,6 +10,7 @@ let ans = 0;
 for(let i = 1 ; i <= 9 ; i++){
     for(let j = 1 ; j <= 9 ; j++){
         for(let k = 1 ; k <= 9 ; k++){
+            if(i === j || i === k || j === k) continue;
             let count = 0;
             for(const [guess, oneCount, twoCount] of cases){
                 let oSum = 0;
