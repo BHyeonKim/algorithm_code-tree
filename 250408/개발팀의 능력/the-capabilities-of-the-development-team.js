@@ -12,7 +12,8 @@ for(let i = 0 ; i < input.length - 1 ; i++){
         visited[j] = true;
         const team1 = input[i] + input[j];
 
-        for(let k = 0 ; k < input.length && !visited[k] ; k++){
+        for(let k = 0 ; k < input.length ; k++){
+            if(visited[k])continue
             const team2 = input[k];
             const team3 = TOTAL - team1 - team2;
 
@@ -21,7 +22,9 @@ for(let i = 0 ; i < input.length - 1 ; i++){
             const teams = [team1,team2,team3].sort((a,b)=>a-b);
             const diff = Math.abs(teams[0]- teams[2]);
 
-            ans = ans > diff ? diff : ans
+            if(ans > diff){
+                ans = ans > diff ? diff : ans
+            }
         }
 
         visited[j] = false;
