@@ -2,7 +2,7 @@ const fs = require('fs')
 
 const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n')
 
-const lines = input.slice(1).map(line=>line.split(' ').map(Number));
+const lines = input.slice(1).map(line=>line.split(' ').map(Number).sort((a,b)=>a-b));
 
 let ans = 0;
 
