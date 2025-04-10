@@ -16,8 +16,8 @@ for(let i = 0 ; i < lines.length ; i++){
 
         const left = lines[j][0], right = lines[j][1];
 
-        if(leftBound <= left && rightBound >= left && leftBound <= right && rightBound >= right) continue;
-        if(leftBound >= left && rightBound >= left && leftBound <= right && rightBound <= right) continue;
+        if(leftBound < left && rightBound > left && leftBound < right && rightBound > right) continue;
+        if(leftBound > left && rightBound > left && leftBound < right && rightBound < right) continue;
 
         count++
     }
