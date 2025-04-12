@@ -34,9 +34,15 @@ let ans = 0;
 for(let i = 1 ; i < rottenCheck.length ; i++){
     if(!rottenCheck[i]) continue;
 
-    const medicines = eats.filter(eat=>eat[1] === i).length;
+    const sickable = eats.filter(eat=>eat[1] === i);
 
-    ans = ans > medicines ? ans : medicines
+    const medicines = [];
+
+    for(const [personAte] of sickable){
+        if(!medicines.includes(personAte)) medicines.push(personAte)
+    }
+
+    ans = ans > medicines.length ? ans : medicines.length
 }
 
 console.log(ans)
