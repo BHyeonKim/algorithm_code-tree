@@ -16,8 +16,8 @@ for(let player1 = 1 ; player1 <= NUM_OF_DEV ; player1++){
 
         for(const game of games){
             
-            const player1_rank = game.findIndex(player => player === player1);
-            const player2_rank = game.findIndex(player => player === player2);
+            const player1_rank = game.indexOf(player1);
+            const player2_rank = game.indexOf(player2);
 
             if(player1_rank < player2_rank) count++;
             else{
