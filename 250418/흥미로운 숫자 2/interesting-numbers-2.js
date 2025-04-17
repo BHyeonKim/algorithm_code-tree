@@ -21,11 +21,11 @@ for(let num = start ; num <= end ; num++){
             continue;
         }
 
-        if(!num1){
+        if(typeof num1 === 'undefined'){
             num1 = val;
             numOfNum1++;
             continue;
-        }else if(!num2){
+        }else if(typeof num2 === 'undefined'){
             num2 = val;
             numOfNum2++;
             continue;
@@ -35,7 +35,8 @@ for(let num = start ; num <= end ; num++){
         break;
     }
 
-    if(numOfNum1 + numOfNum2 === numArr.length && (numOfNum1 === numArr.length - 1 || numOfNum2 === numArr.length - 1)) ans++
+    if(numOfNum1 + numOfNum2 === numArr.length && (numOfNum1 === numArr.length - 1 || numOfNum2 === numArr.length - 1)) ans++;
+    
 }
 
 console.log(ans)
