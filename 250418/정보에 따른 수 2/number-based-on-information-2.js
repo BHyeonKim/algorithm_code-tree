@@ -16,22 +16,22 @@ for(let x = A ; x <= B ; x++){
     let offsetS = 0;
     let offsetN = 0;
 
-    while(true){
+    while(x - offsetS >= A || x + offsetS <= B){
         const negativePosition = x - offsetS;
         const positivePosition = x + offsetS
         
         if(negativePosition >= A && arr[negativePosition] === 'S') break;
-        else if(positivePosition <= B && arr[positivePosition] === 'S') break;
+        if(positivePosition <= B && arr[positivePosition] === 'S') break;
 
         offsetS++;
     }
 
-     while(true){
+     while(x - offsetN >= A || x + offsetN <= B){
         const negativePosition = x - offsetN;
         const positivePosition = x + offsetN
         
         if(negativePosition >= A && arr[negativePosition] === 'N') break;
-        else if(positivePosition <= B && arr[positivePosition] === 'N') break;
+        if(positivePosition <= B && arr[positivePosition] === 'N') break;
 
         offsetN++;
     }
