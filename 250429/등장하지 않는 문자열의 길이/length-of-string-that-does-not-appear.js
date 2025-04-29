@@ -6,18 +6,18 @@ const string = input[1].trim()
 
 let ans = 0;
 
-for(let i = 1 ; i < string.length ; i++){
-    for(let index = 0 ; index + i <= string.length ; index++){
-        const subStr = string.slice(index, index+i)
-        const left = string.slice(0, index);
-        const right = string.slice(index+i)
+for(let length = 1 ; length < string.length ; length++){
+    for(let index = 0 ; index + length <= string.length ; index++){
+        const subStr = string.slice(index, index+length)
+        const left = string.slice(0, index+length-1);
+        const right = string.slice(index+1)
 
         if(left.includes(subStr) || right.includes(subStr)){
            break;
         }
 
-        if(index + i === string.length){
-            ans = i;
+        if(index + length === string.length){
+            ans = length;
             break;
         }
     }
