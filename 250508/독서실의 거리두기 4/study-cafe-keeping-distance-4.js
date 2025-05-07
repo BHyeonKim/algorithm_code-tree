@@ -15,11 +15,11 @@ for(let i = 0 ; i < N ; i++){
         if(arr[j]) continue;
 
         let distance = 100;
-        let prev;
+        let prev = -1;
         arr[j] = 1;
 
         for(let k = 0 ; k < N ; k++){
-            if(!prev && arr[k]){
+            if(prev === -1 && arr[k]){
                 prev = k;
                 continue;
             }
@@ -30,7 +30,7 @@ for(let i = 0 ; i < N ; i++){
             }
         }
 
-        ans = Math.max(ans, distance)
+        ans = Math.max(ans, distance)        
 
         arr[j] = 0
     }
