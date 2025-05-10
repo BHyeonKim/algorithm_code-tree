@@ -7,16 +7,13 @@ const visited = Array(N).fill(false);
 
 const map = new Map()
 
-let max = 0
-let ans = 0;
-
 for(let i = 0 ; i < N ; i++){
     if(visited[i]) continue;
 
     const bomb = bombs[i]
     const exploded = explode(i, bomb, 0)
 
-
+    if(exploded === 1) continue
 
     if(map.has(bomb)){
         map.set(bomb, map.get(bomb)+exploded)
