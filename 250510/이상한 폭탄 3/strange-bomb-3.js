@@ -43,7 +43,7 @@ function explode(index, bomb, count){
         let currentCount = count;
         let lastIndex = -1
 
-        for(let i = index ; i <= index+K && i < N ; i++){
+        for(let i = index ; i < index+K && i < N ; i++){
             if(bombs[i] === bomb){
                 visited[i] = true;
                 currentCount++;
