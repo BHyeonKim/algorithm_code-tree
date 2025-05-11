@@ -8,20 +8,18 @@ const combinations = [];
 
 function dfs(start, acc) {
     if (acc.length === M - 1) {
-        combinations.push([...acc]);
+        combinations.push(acc.split('').map(Number));
         return;
     }
 
     for (let i = start; i < N - 1; i++) {
-        acc.push(i);
-        dfs(i + 1, acc);
-        acc.pop();
+        dfs(i + 1, acc+String(i));
     }
 }
 
 let ans = Number.MAX_SAFE_INTEGER;
 
-dfs(0, []);
+dfs(0, '');
 
 for(const split of combinations){
 
@@ -33,7 +31,7 @@ for(const split of combinations){
         const splitStart = split[i];
         const splitEnd = split[i+1];
 
-        maxArr.push(arr.slice(splitStart+1, splitEnd + 1).reduce((acc,cur)=>acc+=cur,0))
+        maxArr.push(arr.slice(splitStart+1, splitEnd+1).reduce((acc,cur)=>acc+=cur,0))
     }
 
     maxArr.push(arr.slice(split[split.length-1]+1).reduce((acc,cur)=>acc+=cur,0))
@@ -44,3 +42,4 @@ for(const split of combinations){
 }
 
 console.log(ans)
+
