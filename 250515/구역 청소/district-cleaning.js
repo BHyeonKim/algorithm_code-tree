@@ -18,9 +18,9 @@ const min = Math.min(a,c);
 const max = Math.max(c,d);
 let count = 0;
 
-for(let i = min ; i <= max ; i++){
-    if(visited[i]) count++
+for(let i = 0 ; i < 100 ; i++){
+    if(visited[i] && visited[i+1]) count++
 }
 
-console.log(count-1)
+console.log(count)
 
