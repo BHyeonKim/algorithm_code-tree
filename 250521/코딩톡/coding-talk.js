@@ -19,12 +19,19 @@ for(let i = MESSAGE_NUMBER - 1 ; i < NUM_OF_MESSAGE ; i++){
 
 let ans = ''
 
+for(let i = MESSAGE_NUMBER - 2  ; i >= 0 ; i--){
+    const [person, unread] = messages[i]
+    if(unread === messages[MESSAGE_NUMBER - 1][1]){
+        map.set(person, true)
+    }
+}
+
+
 for(const [key,value] of map.entries()){
     if(!value){
         ans += key + ' '
     }
 }
-
 
 if(MESSAGE_NUMBER === 1){
     return;
