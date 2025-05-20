@@ -23,6 +23,8 @@ for(let i = MESSAGE_NUMBER - 2  ; i >= 0 ; i--){
     const [person, unread] = messages[i]
     if(unread === messages[MESSAGE_NUMBER - 1][1]){
         map.set(person, true)
+    }else{
+        break
     }
 }
 
