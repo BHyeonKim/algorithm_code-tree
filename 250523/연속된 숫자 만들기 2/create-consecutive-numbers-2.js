@@ -14,6 +14,8 @@ while(!isContinuous(...arr)){
         arr[2] = arr[1] - 1
     }else if(distA < distB && distA >= 2){
         arr[2] = arr[1] - 1;
+    }else if(distA < distB){
+        arr[0] = arr[2] - 1
     }
 
     count++
