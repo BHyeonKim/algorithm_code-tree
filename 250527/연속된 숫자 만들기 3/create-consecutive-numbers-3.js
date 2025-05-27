@@ -10,9 +10,9 @@ while(!isAligned(arr)){
     
     if(arr[2] - arr[1] > 1 && arr[1] - arr[0] > 1){
         if(arr[2]-arr[1] > arr[1]-arr[0]){
-            arr[2] = arr[1] - 1
-        }else{
             arr[0] = arr[2] - 1
+        }else{
+            arr[2] = arr[1] - 1
         }
     }else if(arr[2] - arr[1] > 1){
         arr[0] = arr[2] - 1;
