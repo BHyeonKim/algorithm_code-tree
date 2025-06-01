@@ -9,7 +9,7 @@ const score = {
     'B' : 0
 }
 
-let honor = ''
+let honor = 'AB'
 let ans = 0;
 
 for(const [c, s] of changes){
