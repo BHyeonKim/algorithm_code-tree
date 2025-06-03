@@ -19,21 +19,23 @@ for(let i = 0 ; i < 10 ; i++){
 if(L[0] !== B[0] && L[1] !== B[1]){
     console.log(Math.abs(L[0]-B[0])+Math.abs(L[1]-B[1])-1)
 }else if(L[0] !== B[0]){
-    const big = Math.abs(L[0],B[0])
-    const small = Math.abs(L[0],B[0])
+    const big = Math.max(L[0],B[0])
+    const small = Math.min(L[0],B[0])
 
     if(small < R[0] && R[0] < big){
-        console.log(Math.abs(L[0]-B[0])+3)
+        console.log(L,B,R)
+        console.log(Math.abs(L[0]-B[0])+1)
     }else{
-        console.log(Math.abs(L[0]-B[0]))
+        console.log(Math.abs(L[0]-B[0])-1)
     }
 }else if(L[1] !== B[1]){
-    const big = Math.abs(L[1],B[1])
-    const small = Math.abs(L[1],B[1])
+    const big = Math.max(L[1],B[1])
+    const small = Math.min(L[1],B[1])
 
     if(small < R[1] && R[1] < big){
-        console.log(Math.abs(L[1]-B[1])+3)
+        console.log('here')
+        console.log(Math.abs(L[1]-B[1])+1)
     }else{
-        console.log(Math.abs(L[1]-B[1]))
+        console.log(Math.abs(L[1]-B[1])-1)
     }
 }
