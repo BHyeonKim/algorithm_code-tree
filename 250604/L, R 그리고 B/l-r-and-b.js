@@ -23,7 +23,6 @@ if(L[0] !== B[0] && L[1] !== B[1]){
     const small = Math.min(L[0],B[0])
 
     if(small < R[0] && R[0] < big){
-        console.log(L,B,R)
         console.log(Math.abs(L[0]-B[0])+1)
     }else{
         console.log(Math.abs(L[0]-B[0])-1)
@@ -33,7 +32,6 @@ if(L[0] !== B[0] && L[1] !== B[1]){
     const small = Math.min(L[1],B[1])
 
     if(small < R[1] && R[1] < big){
-        console.log('here')
         console.log(Math.abs(L[1]-B[1])+1)
     }else{
         console.log(Math.abs(L[1]-B[1])-1)
