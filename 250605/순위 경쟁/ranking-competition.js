@@ -22,7 +22,7 @@ for(const [C, S] of changes){
     score.set(C, nextScore);
 
 
-    let maxScore = 0;
+    let maxScore = Number.NEGATIVE_INFINITY;
     for(const [_,value] of score.entries()){
         maxScore = Math.max(maxScore, value)
     }
