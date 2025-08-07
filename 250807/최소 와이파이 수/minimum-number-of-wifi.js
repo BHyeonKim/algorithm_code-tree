@@ -4,7 +4,7 @@ const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
 const [N, M] = input[0].split(' ').map(Number);
 const bits = input[1].split(' ').map(Number);
 
-const coverage = M === 0 ? 0 : M + 2;
+const coverage = M === 0 ? 1 : M + 2;
 
 let count = 0;
 let distance = 0;
