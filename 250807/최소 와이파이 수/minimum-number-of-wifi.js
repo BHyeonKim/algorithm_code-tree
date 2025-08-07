@@ -21,7 +21,7 @@ for(let i = 0 ; i < N ; i++){
     count += bits[i];
 
 
-    if(distance === coverage || count === coverage){
+    if(distance === N || distance === coverage || count === coverage){
         ans++;
 
         count = 0;
