@@ -26,7 +26,7 @@ for(let i = 1 ; i < N ; i++){
 
     dp[1][i] = Math.max(dp[0][i-1], dp[1][i-1]);
 
-    prevEnd = currentStart
+    prevEnd = lines[i][1];
 }
 
 console.log(Math.max(dp[1][N-1],dp[0][N-1]))
