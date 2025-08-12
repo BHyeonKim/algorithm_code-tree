@@ -7,7 +7,7 @@ dp[2] = 1;
 dp[3] = 1;
 
 for(let i = 4 ; i <= N ; i++){
-    dp[i] = dp[i-2] + dp[i-3]
+    dp[i] = (dp[i-2] + dp[i-3])%10007
 }
 
 console.log(dp[N])
