@@ -9,6 +9,9 @@ memo[3] = 5;
 
 function recursive(n){
     if(memo[n]) return memo[n]
+    if(n <= 1){
+        return 1
+    }
 
     let acc = 0;
     for(let i = 1 ; i <= n ; i++){
