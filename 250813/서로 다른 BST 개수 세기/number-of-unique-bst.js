@@ -9,16 +9,18 @@ memo[3] = 5;
 
 function recursive(n){
     if(memo[n]) return memo[n]
-    
+
     let acc = 0;
     for(let i = 1 ; i <= n ; i++){
         if(!memo[i]){
-            memo[i] = recursive(i);
+            memo[i] = recursive(i) * recursive(n - i - 1);
         }
         acc += memo[i]
     }
 
-    return acc;
+    memo[n] = acc
+
+    return memo[n];
 }
 
 
