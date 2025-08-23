@@ -15,10 +15,7 @@ function recursive(n){
 
     let acc = 0;
     for(let i = 0 ; i < n ; i++){
-        if(!memo[i]){
-            memo[i] = recursive(i) * recursive(n - i - 1);
-        }
-        acc += memo[i]
+        acc += recursive(i) * recursive(n - i - 1);
     }
 
     memo[n] = acc
