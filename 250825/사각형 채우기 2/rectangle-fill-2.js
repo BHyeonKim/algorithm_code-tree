@@ -10,7 +10,7 @@ dp[2] = 3;
 dp[3] = 5;
 
 for(let i = 4 ; i <= N ; i++){
-    dp[i] = (dp[i-1]) % DIV_NUM + (dp[i-2] * 2) % DIV_NUM
+    dp[i] = (dp[i-1]+ dp[i-2] * 2) % DIV_NUM
 }
 
 console.log(dp[N])
