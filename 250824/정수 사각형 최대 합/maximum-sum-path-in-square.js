@@ -18,7 +18,7 @@ for(let j = 1 ; j < N ; j++){
 
 for(let i = 1 ; i < N ; i++){
     for(let j = 1 ; j < N ; j++){
-        dp[i][j] = Math.max(dp[i][j-1]+grid[i][j],dp[i-1][j]+grid[i][j])
+        dp[i][j] = Math.max(dp[i][j-1],dp[i-1][j]) + grid[i][j]
     }
 }
 
