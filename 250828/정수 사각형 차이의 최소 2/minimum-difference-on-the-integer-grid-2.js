@@ -24,7 +24,7 @@ for(let i = 1 ; i < N ; i++){
         const max2 = Math.max(dp[i][j-1].max, map[i][j]);
         const min2 = Math.min(dp[i][j-1].min, map[i][j]);
         
-        if(max1 - min1 > max2 - min2){
+        if(max1 - min1 >= max2 - min2){
             dp[i][j].max = max2
             dp[i][j].min = min2
         }else{
