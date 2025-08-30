@@ -13,7 +13,7 @@ dp[3] = 3;
 for(let i = 4 ; i <= N ; i++){
     for(const n of numbers){
         if(i >= n){
-            dp[i] += dp[i - n] % 10007;
+            dp[i] = (dp[i] + dp[i - n]) % 10007;
         }
     }
 }
