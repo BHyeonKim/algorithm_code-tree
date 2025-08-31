@@ -6,11 +6,17 @@ const coins = input[1];
 
 const dp = Array(M+1).fill(0);
 
+for(const coin of coins){
+    dp[coin] = 1;
+}
+
 
 for(let i = 1 ; i <= M ; i++){
     for(const coin of coins){
         if(i >= coin){
-            dp[i] = Math.max(dp[i-coin]+1,dp[i]);
+            if(dp[i-coin] > 0){
+                dp[i] = Math.max(dp[i-coin]+1,dp[i]);
+            }
         }
     }   
 }
