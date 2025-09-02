@@ -4,25 +4,18 @@ const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n').map(li
 const [N, M] = input[0];
 const diamonds = input.slice(1);
 
-const wDp = Array.from({length:N},()=>Array.from({length:N},()=>0))
-const vDp = Array.from({length:N},()=>Array.from({length:N},()=>0))
+const dp = Array.from({length: N + 1}, () => Array(M + 1).fill(0));
 
-let ans = 0;
+for (let i = 1; i <= N; i++) {
+    const [weight, value] = diamonds[i - 1];
 
-if(diamonds[0][0] <= M){
-    wDp[0][0] = diamonds[0][0]
-    vDp[0][0] = diamonds[0][1];
-    ans = diamonds[0][1];
-}
+    for (let w = 0; w <= M; w++) {
+        dp[i][w] = dp[i - 1][w];
 
-for(let i = 1 ; i < N ; i++){
-    for(let j = 0 ; j <= i ; j++){
-        if(wDp[i-1][j] + diamonds[i][0] <= M){
-            wDp[i][j] = wDp[i-1][j] + diamonds[i][0]
-            vDp[i][j] = vDp[i-1][j] + diamonds[i][1]
-            ans = Math.max(ans, vDp[i][j])
+        if (weight <= w) {
+            dp[i][w] = Math.max(dp[i][w], dp[i - 1][w - weight] + value);
         }
     }
 }
 
-console.log(ans)
+console.log(dp[N][M]);
