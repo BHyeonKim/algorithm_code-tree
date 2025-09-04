@@ -24,7 +24,7 @@ for(let i = 1 ; i <= N ; i++){
     }
 }
 
-let ans = Number.POSITIVE_INTERGER
+let ans = Number.POSITIVE_INFINITY
 
 for(let i = 0 ; i <= TIME ; i++){
     if(dp[N][i] >= M){
@@ -33,7 +33,7 @@ for(let i = 0 ; i <= TIME ; i++){
     }
 }
 
-if(ans === Number.POSITIVE_INTERGER){
+if(ans === Number.POSITIVE_INFINITY){
     console.log(-1)
 }else{
     console.log(ans)
