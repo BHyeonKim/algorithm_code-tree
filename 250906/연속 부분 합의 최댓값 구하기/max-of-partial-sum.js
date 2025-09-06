@@ -11,4 +11,5 @@ for(let i = 1 ; i < N ; i++){
     dp[i] = Math.max(dp[i-1]+arr[i],arr[i]);
 }
 
-console.log(dp[N-1])
+
+console.log(Math.max(...dp))
