@@ -1,21 +1,19 @@
 const fs = require("fs");
 const input = fs.readFileSync(0).toString().trim().split('\n').map(line=>line.split(' ').map(Number));
 
-const [N, M] = input[0]
+const [N, M] = input[0];
 const arr = input[1];
 
 const OFFSET = 20;
+const dpLen = OFFSET*2+1;
+let dp = Array.from({length: dpLen},()=>0);
 
-const NEG = -1;
-const POS = 1;
-
-
-const dpLen = OFFSET*2+1
-let dp = Array.from({length: dpLen},()=>0)
-
-dp[arr[0]+OFFSET] = 1;
-dp[arr[0]*(-1)+OFFSET] = 1;
-
+if(arr[0] === 0) {
+    dp[OFFSET] = 2; 
+} else {
+    dp[arr[0]+OFFSET] = 1;
+    dp[(-arr[0])+OFFSET] = 1;
+}
 
 for(let i = 1; i < N; i++){
     const num = arr[i];
