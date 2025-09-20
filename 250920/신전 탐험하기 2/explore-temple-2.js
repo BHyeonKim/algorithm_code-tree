@@ -4,41 +4,29 @@ const input = fs.readFileSync(0).toString().trim().split('\n').map(line=>line.sp
 const N = input[0][0]
 const floors = [0, ...input.slice(1)]
 
-const dp = Array.from({length:N+1},()=>Array.from({length:4},()=>Array.from({length:2},()=>0)))
+const dp = Array.from({length: N+1}, () => Array.from({length: 4}, () => Array.from({length: 4}, () => -1)));
 
-
-for(let i = 1 ; i <= 3 ; i++){
-    dp[1][i][0] = floors[1][i-1];
-    dp[1][i][1] = i;
+for(let first = 1; first <= 3; first++) {
+    dp[1][first][first] = floors[1][first-1];
 }
 
 
 let ans = 0;
 
-const arr = [1, 2 ,3]
+for(let i = 2; i <= N; i++) {
+    for(let curr = 1; curr <= 3; curr++) { 
+        for(let first = 1; first <= 3; first++) { 
+            for(let prev = 1; prev <= 3; prev++) { 
+                if(dp[i-1][prev][first] === -1) continue;
 
-for(let i = 2 ; i <= N ; i++){
-    if(i === N){
+                if(prev === curr) continue;
 
-        for(const currentFloor of arr){
-            const [prevFloor1, prevFloor2] = arr.filter(floor=> floor !== currentFloor)
+                if(i === N && first === curr) continue;
 
-            const prevBiggerFloor = dp[i-1][prevFloor1][0] > dp[i-1][prevFloor2][0] && dp[i-1][prevFloor1][1] !== currentFloor ? prevFloor1 : prevFloor2
+                dp[i][curr][first] = Math.max(dp[i][curr][first], dp[i-1][prev][first] + floors[i][curr-1]);
 
-            dp[i][currentFloor][0] = dp[i-1][prevBiggerFloor][0] + floors[i][currentFloor - 1]
-
-            ans = Math.max(ans, dp[i][currentFloor][0])
-        }
-
-    }else{
-
-        for(const currentFloor of arr){
-            const [prevFloor1, prevFloor2] = arr.filter(floor=> floor !== currentFloor)
-
-            const prevBiggerFloor = dp[i-1][prevFloor1][0] > dp[i-1][prevFloor2][0] ? prevFloor1 : prevFloor2
-
-            dp[i][currentFloor][0] = dp[i-1][prevBiggerFloor][0] + floors[i][currentFloor - 1]
-            dp[i][currentFloor][1] = dp[i-1][prevBiggerFloor][1]
+                ans = Math.max(ans, dp[i][curr][first])
+            }
         }
     }
 }
