@@ -26,32 +26,3 @@ for(let i = 1 ; i <= N ; i++){
 }
 
 console.log(ans)
-
-// for(let i = 1 ; i <= N ; i++){
-//     for(let j = 1 ; j <= M ; j++){
-//         if(str1[i]===str2[j]){
-//             dp[i][j] = 1;
-//         }
-//     }
-// }
-
-
-// for(let i = 2 ; i <= N ; i++){
-//     for(let j = 2 ; j <= M ; j++){
-//         if(str1[i] === str2[j]){
-            
-//             let prevMax = NEG;
-
-//             for(let k = 1 ; k < i ; k++){
-//                 for(let l = 1 ; l < j ; l++){
-//                     prevMax = Math.max(prevMax, dp[k][l])
-//                 }
-//             }
-
-//             dp[i][j] = Math.max(dp[i][j], prevMax === NEG ? dp[i][j] : prevMax + 1)
-
-//             ans = Math.max(ans, dp[i][j])
-//         }
-//     }
-// }
-
