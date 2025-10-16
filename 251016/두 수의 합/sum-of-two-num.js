@@ -5,11 +5,23 @@ const [N, K] = input[0].split(' ').map(Number);
 const arr = input[1].split(' ').map(Number);
 
 
+const map = new Map()
+
 let ans = 0;
 
-for(let i = 0 ; i < arr.length - 1 ; i++){
-    for(let j = i+1 ; j < arr.length ; j++){
-        if(arr[i] + arr[j] === K) ans++
+for(let i = 0 ; i < arr.length ; i++){
+    const current = arr[i];
+    const target = K - current;
+    
+    if(map.has(target)){
+        ans += map.get(target);
+    }
+
+
+    if(map.has(current)){
+        map.set(current, map.get(current) + 1);
+    }else{
+        map.set(current, 1);
     }
 }
 
