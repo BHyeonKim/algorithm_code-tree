@@ -9,7 +9,7 @@ const map = new Map();
 const arr = []
 
 for(const num of numArr){
-    map.set(num, map.has(num) ? map.get(num) + 1 : 1);
+    map.set(num, (map.get(num) || 0) + 1);
 }
 
 
@@ -17,7 +17,6 @@ for(const [key, value] of map.entries()){
     if(Array.isArray(arr[value])){
         arr[value].push(key)
 
-        arr[value].sort((a,b)=>b-a)
     }else{
         arr[value] = [key];
     }
@@ -30,7 +29,9 @@ for(let i = arr.length - 1 ; i >= 0 ; i--){
     const subArr = arr[i];
 
     if(!Array.isArray(subArr)) continue;
-    
+
+    subArr.sort((a,b)=>b-a)
+
     for(const num of subArr){
         if(count === K)break;
 
