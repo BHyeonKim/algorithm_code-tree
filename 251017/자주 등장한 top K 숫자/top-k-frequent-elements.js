@@ -29,6 +29,8 @@ let count = 0;
 for(let i = arr.length - 1 ; i >= 0 ; i--){
     const subArr = arr[i];
 
+    if(!Array.isArray(subArr)) continue;
+    
     for(const num of subArr){
         if(count === K)break;
 
