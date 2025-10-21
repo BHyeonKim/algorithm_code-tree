@@ -28,10 +28,14 @@ for(let i = N ; i >= 0 ; i--){
     let blank = 0;
     let prev = sum[i]
 
+    if(i - 1 < K) break;
+
     for(let j = i + 1 ; j >= 0 ; j--){
         const count = (i - j) + 1;
 
         if(prev === sum[j]) blank++
+
+        if(blank > ans) break;
 
         if(count === K){ 
             ans = Math.min(ans, blank)
