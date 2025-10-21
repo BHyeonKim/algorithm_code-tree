@@ -4,46 +4,21 @@ const input = fs.readFileSync(0).toString().trim().split("\n");
 const [N, K, B] = input[0].trim().split(" ").map(Number);
 const blankArr = input.slice(1, 1 + B).map(Number);
 
-const arr = Array(N+1).fill(0);
-
-for(let i = 0 ; i < N+1 ; i++){
-    arr[i] = i;
+const broken = Array(N + 1).fill(0);
+for (const blank of blankArr) {
+    broken[blank] = 1;
 }
 
-for(const blank of blankArr){
-    arr[blank] = 0;
+const prefixSum = Array(N + 1).fill(0);
+for (let i = 1; i <= N; i++) {
+    prefixSum[i] = prefixSum[i - 1] + broken[i];
 }
 
-const sum = Array.from({length:N+1},()=>0);
+let ans = Number.MAX_SAFE_INTEGER;
 
-for(let i = 1 ; i < N+1 ; i++){
-    sum[i] = arr[i] + sum[i-1];
+for (let i = K; i <= N; i++) {
+    const brokenCount = prefixSum[i] - prefixSum[i - K];
+    ans = Math.min(ans, brokenCount);
 }
 
-
-
-let ans = Number.MAX_SAFE_INTEGER
-
-for(let i = N ; i >= 0 ; i--){
-    let blank = 0;
-    let prev = sum[i]
-
-    if(i - 1 < K) break;
-
-    for(let j = i + 1 ; j >= 0 ; j--){
-        const count = (i - j) + 1;
-
-        if(prev === sum[j]) blank++
-
-        if(blank > ans) break;
-
-        if(count === K){ 
-            ans = Math.min(ans, blank)
-            break;
-        }
-
-        prev = sum[j]
-    }
-}
-
-console.log(ans)
+console.log(ans);
