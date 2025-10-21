@@ -27,7 +27,8 @@ let ans = Number.MAX_SAFE_INTEGER
 for(let i = N ; i >= 0 ; i--){
     let blank = 0;
     let prev = sum[i]
-    for(let j = i - 1 ; j >= 0 ; j--){
+
+    for(let j = i ; j >= 0 ; j--){
         const count = (i - j) + 1;
 
         if(prev === sum[j]) blank++
