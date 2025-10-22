@@ -6,33 +6,23 @@ const sequence = input[1].split(" ").map(Number);
 
 
 
-let ans = sequence.length;
+let ans = sequence.length+1;
 
 
 
 let i = 0, j = 0;
 let sum = 0;
 
-sum = sequence[i];
-
 while(i < sequence.length && j < sequence.length){
-    if(i === j){
-        if(sequence[i] >= S){
-            ans = 1;
-        }
+      sum += sequence[j];
 
-        j++;
-        sum += sequence[j]
-    }else if(sum < S){
-        j++;
-        sum += sequence[j]
-    }else if(sum >= S){
-        const length = (j - i) + 1;
-        ans = Math.min(ans, length);
+      while(sum >= S){
+          ans = Math.min(ans, j - i + 1);
+          sum -= sequence[i];
+          i++;
+      }
 
-        i++;
-        sum -= sequence[i]
-    }
+      j++;
 }
 
-console.log(ans)
+console.log(ans === sequence.length+1 ? -1 : ans)
