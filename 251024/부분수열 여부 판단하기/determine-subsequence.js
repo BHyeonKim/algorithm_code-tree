@@ -5,9 +5,6 @@ const [N, M] = input[0].split(' ').map(Number);
 const A = input[1].split(' ').map(Number);
 const B = input[2].split(' ').map(Number);
 
-const checked = Array.from({length:B},()=>false);
-
-
 let a = 0;
 let b = 0;
 
