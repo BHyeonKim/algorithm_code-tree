@@ -2,7 +2,7 @@ const fs = require("fs");
 const input = fs.readFileSync(0).toString().trim().split('\n');
 
 const [N, M] = input[0].split(' ').map(Number);
-const numbers = input[1].split(' ').map(Number);
+const numbers = input[1].split(' ').map(Number).sort((a,b)=>a-b);
 const queries = input.slice(2, 2 + M).map(Number);
 
 
