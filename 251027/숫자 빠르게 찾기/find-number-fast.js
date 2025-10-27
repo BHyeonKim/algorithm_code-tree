@@ -26,7 +26,7 @@ function parametricSearch(arr,target){
     let targetIndex = -1;
 
     while(left <= right){
-        const mid = Math.floor(right - left);
+        const mid = Math.floor((right + left)/2);
 
         if(arr[mid] === target){
             targetIndex = mid;
