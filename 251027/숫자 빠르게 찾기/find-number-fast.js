@@ -2,8 +2,8 @@ const fs = require("fs");
 const input = fs.readFileSync(0).toString().trim().split('\n');
 
 const [N, M] = input[0].split(' ').map(Number);
-const numbers = input[1].split(' ').map(Number).sort((a,b)=>a-b);
-const queries = input.slice(2, 2 + M).map(Number);
+const numbers = input[1].trim()split(' ').map(Number).sort((a,b)=>a-b);
+const queries = input.slice(2).map(Number);
 
 
 
@@ -14,7 +14,7 @@ for(const query of queries){
     if(result === -1){
         ans += -1 + '\n'
     }else{
-        ans += (result + 1) + '\n'
+        ans += String(result + 1) + '\n'
     }
 }
 
@@ -35,7 +35,7 @@ function parametricSearch(arr,target){
 
         if(arr[mid] > target){
             right = mid - 1;
-        }else if(arr[mid] < target){
+        }else{
             left = mid + 1;
         }
     }
