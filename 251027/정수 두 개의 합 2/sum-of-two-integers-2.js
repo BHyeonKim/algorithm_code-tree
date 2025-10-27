@@ -8,19 +8,14 @@ const arr = input.slice(1).map(Number).sort((a,b)=>a-b);
 
 let ans = 0;
 
-for(let i = N - 1 ; i >= 1 ; i--){
-    if(arr[i] > K) continue;
-    let foundAnswer = false;
+for(let i = 0 ; i < N - 1 ; i++){
+    for(let j = N - 1 ; i < j ; j--){
 
-    for(let j = 0 ; i > j ; j++){
         if(arr[i] + arr[j] <= K){
-            ans += (i - j);
-            foundAnswer = true;
+            ans += (j - i)
             break;
         }
     }
-
-    if(foundAnswer) break
 }
 
 
