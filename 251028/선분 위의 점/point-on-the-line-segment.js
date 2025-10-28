@@ -11,13 +11,7 @@ for(const[start, end] of lines){
     const lowerBound = getLowerBound(points, start);
     const upperBound = getUpperBound(points, end);
 
-    if(lowerBound === -1){
-        ans += '0\n';
-    }else if(upperBound === -1){
-        ans += (N - lowerBound) + '\n';
-    }else{
-        ans += (upperBound - lowerBound) + '\n';
-    }
+    ans += (upperBound - lowerBound) + '\n';
 }
 
 console.log(ans.trim())
@@ -37,7 +31,7 @@ function getUpperBound(arr, target){
         }
     }
 
-    return bound === arr.length ? -1 : bound;
+    return bound
 }
 
 function getLowerBound(arr, target){
@@ -55,5 +49,5 @@ function getLowerBound(arr, target){
         }
     }
 
-    return bound === arr.length ? -1 : bound;
+    return bound 
 }
