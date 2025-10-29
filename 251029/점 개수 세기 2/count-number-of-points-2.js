@@ -3,71 +3,53 @@ const input = fs.readFileSync(0).toString().trim().split('\n').map(line=>line.tr
 
 const [N, Q] = input[0].split(' ').map(Number);
 const points = input.slice(1, N+1).map(line=>line.split(' ').map(Number));
-const squares = input.slice(N+1).map(line=>line.split(' ').map(Number))
+const squares = input.slice(N+1).map(line=>line.split(' ').map(Number));
 
-const xMap = new Map();
-const yMap = new Map();
+const xCoords = [...new Set(points.map(p => p[0]))].sort((a,b) => a-b);
+const yCoords = [...new Set(points.map(p => p[1]))].sort((a,b) => a-b);
 
-points.sort((a,b)=>a[0]-b[0])
+const xMap = new Map(xCoords.map((x, i) => [x, i+1]));
+const yMap = new Map(yCoords.map((y, i) => [y, i+1]));
 
-let idx = 1;
+const compressedPoints = points.map(([x, y]) => [xMap.get(x), yMap.get(y)]);
 
-for(const [x] of points){
-    xMap.set(x, idx++)
+function lowerBound(arr, target) {
+    let left = 0, right = arr.length;
+    while (left < right) {
+        const mid = Math.floor((left + right) / 2);
+        if (arr[mid] < target) left = mid + 1;
+        else right = mid;
+    }
+    return left + 1;
 }
 
-points.sort((a,b)=>a[1]-b[1])
-
-idx = 1;
-
-for(const [_,y] of points){
-    yMap.set(y, idx++)
+function upperBound(arr, target) {
+    let left = 0, right = arr.length;
+    while (left < right) {
+        const mid = Math.floor((left + right) / 2);
+        if (arr[mid] <= target) left = mid + 1;
+        else right = mid;
+    }
+    return left;
 }
 
+let ans = '';
 
-let ans = ''
-
-for(const [x1,y1, x2, y2] of squares){
-
-    let compressedX1 = Infinity
-    let compressedX2 = -Infinity
-
-    for(const [actual, compressed] of xMap.entries()){
-        if(x1 <= actual){
-            compressedX1 = Math.min(compressedX1, compressed)
-        }
-
-        if(x2 >= actual){
-            compressedX2 = Math.max(compressedX2, compressed);
-        }
-    }
-
-    let compressedY1 = Infinity
-    let compressedY2 = -Infinity   
-
-    for(const [actual, compressed] of yMap.entries()){
-        if(y1 <= actual){
-            compressedY1 = Math.min(compressedY1, compressed)
-        }
-
-        if(y2 >= actual){
-            compressedY2 = Math.max(compressedY2, compressed);
-        }
-    }
-
+for(const [x1, y1, x2, y2] of squares){
+    const compressedX1 = lowerBound(xCoords, x1);
+    const compressedX2 = upperBound(xCoords, x2);
+    const compressedY1 = lowerBound(yCoords, y1);
+    const compressedY2 = upperBound(yCoords, y2);
 
     let count = 0;
-
-    for(const [x, y] of points){
-        const cX = xMap.get(x);
-        const cY = yMap.get(y);
-
-        if(compressedX1 <= cX && cX <= compressedX2 && compressedY1 <= cY && cY <= compressedY2 ){
-            count++
+    for(const [cX, cY] of compressedPoints){
+        if(compressedX1 <= cX && cX <= compressedX2 &&
+            compressedY1 <= cY && cY <= compressedY2){
+            count++;
         }
     }
 
-    ans += count + '\n'   
+    ans += count + '\n';
 }
 
-console.log(ans.trim())
+console.log(ans.trim());
