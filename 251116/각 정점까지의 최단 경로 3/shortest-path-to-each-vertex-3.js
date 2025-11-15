@@ -40,7 +40,7 @@ for(let i = 1 ; i <= N ; i++){
 let ans = ''
 
 for(let i = 2 ; i <= N ; i++){
-    ans += dp[i] + '\n'
+    ans += dp[i] === Infinity ? - 1 : dp[i] + '\n'
 }
 
 console.log(ans.trim())
